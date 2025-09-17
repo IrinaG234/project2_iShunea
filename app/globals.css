@@ -3,7 +3,6 @@
 @tailwind components;
 @tailwind utilities;
 @import "tailwindcss";
-@plugin "tailwindcss-animate";
 @import "tw-animate-css";
 
 html,
