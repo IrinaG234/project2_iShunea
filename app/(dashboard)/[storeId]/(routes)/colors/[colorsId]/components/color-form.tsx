@@ -66,7 +66,7 @@ export const ColorForm: React.FC<ColorFormProps> = ({
         try{
             setLoading(true);
             if(initialData){
-            await axios.patch(`/api/${params.storeId}/colors/${params.colorId}`, data);
+            await axios.patch(`/api/${params.storeId}/colors/${params.colorsId}`, data);
         }else{
             await axios.post(`/api/${params.storeId}/colors`, data);
         }
@@ -83,7 +83,7 @@ export const ColorForm: React.FC<ColorFormProps> = ({
     const onDelete = async()=>{
         try{
             setLoading(true)
-            await axios.delete(`/api/${params.storeId}/colors/${params.colorId}`);
+            await axios.delete(`/api/${params.storeId}/colors/${params.colorsId}`);
             router.refresh();
             router.push(`/${params.storeId}/colors`)
             toast.success("Color deleted");

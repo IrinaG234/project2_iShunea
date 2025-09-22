@@ -6,7 +6,7 @@ import { CellAction } from "./cell-action"
 
 export type ColorColumn = {
   id: string
-  label:string
+  name:string
   value:string
   createdAt:string;
 }

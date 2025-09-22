@@ -9,14 +9,14 @@ import { Heading } from "@/components/ui/heading";
 import { Separator } from "@/components/ui/separator";
 import { DataTable } from "@/components/ui/data-table";
 
-import { CategoryColumn, columns } from "./columns";
+import { ProductColumn, columns } from "./columns";
 import { ApiList } from "@/components/ui/api-list";
 
-interface CategoryClientProps{
-  data:CategoryColumn[]
+interface ProductClientProps{
+  data:ProductColumn[]
 }
 
-export const CategoryClient: React.FC<CategoryClientProps> = ({
+export const ProductClient: React.FC<ProductClientProps> = ({
   data
 }) => {
     const router = useRouter();
@@ -26,10 +26,10 @@ export const CategoryClient: React.FC<CategoryClientProps> = ({
         <>
         <div className="flex items-center justify-between">
           <Heading 
-             title={`Categories (${data.length})`}
-             description="Manage categories for your store"
+             title={`Products (${data.length})`}
+             description="Manage products for your store"
           />
-          <Button onClick={() => router.push(`/${params.storeId}/categories/new`)}>
+          <Button onClick={() => router.push(`/${params.storeId}/products/new`)}>
             <Plus className="mr-2 h-4 w-4"/>
             Add New
           </Button>
@@ -41,9 +41,9 @@ export const CategoryClient: React.FC<CategoryClientProps> = ({
         data={data}/>
         <Heading
         title="API"
-        description="API calls for Categories"/>
+        description="API calls for Products"/>
         <Separator/>
-        <ApiList entityName="categories" entityIdName="categoriesId"/>
+        <ApiList entityName="products" entityIdName="productId"/>
         </>
     )
 }

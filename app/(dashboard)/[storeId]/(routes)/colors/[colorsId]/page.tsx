@@ -1,27 +1,26 @@
 import prismadb from "@/lib/prismadb";
-
 import { ColorForm } from "./components/color-form";
 
-const SizePage  =async({
-    params
+const ColorPage = async ({
+  params,
 }: {
-    params:{ sizeId:string}
-})=>{
-    const size =await prismadb.size.findUnique({
-        where:{
-            id:params.sizeId
-        }
-    });
+  params: Promise<{ colorsId: string }>;
+}) => {
+  const { colorsId } = await params;
 
-    return(
-        <div className="flex-col">
-            <div className="flex-1 space-y-4 p-8 pt-6">
-                <SizeForm initialData={size}/>
+  const color = await prismadb.color.findUnique({
+    where: {
+      id: colorsId,
+    },
+  });
 
-            </div>
-        </div>
-    );
-}
+  return (
+    <div className="flex-col">
+      <div className="flex-1 space-y-4 p-8 pt-6">
+        <ColorForm initialData={color} />
+      </div>
+    </div>
+  );
+};
 
-
-export default SizePage;
+export default ColorPage;
